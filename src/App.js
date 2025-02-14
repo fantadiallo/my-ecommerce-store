@@ -1,24 +1,31 @@
-import logo from './logo.svg';
+import React, {useState} from 'react';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import Layout from './components/Layout/Layout';
+import HomePage from './pages/HomePage/HomePage';
+import ProductPage from './pages/ProductPage/ProductPage';
+import CartPage from './pages/CartPage/CartPage';
+import CheckoutPage from './pages/CheckoutPage/CheckoutPage';
+import CheckoutSuccessPage from './pages/CheckoutSuccessPage/CheckoutSuccessPage';
+import NotFoundPage from './pages/NotFoundPage/NotFoundPage';
+import ContactPage from './pages/ContactPage/ContactPage';
 import './App.css';
 
 function App() {
+  const [isLoading, setIsLoading] = useState(false);
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+      <Layout isLoading={isLoading}>
+        <Routes>
+       <Route path="/" element={<HomePage setIsLoading={setIsLoading}/>} />
+          <Route path="/" element={<HomePage />}/>
+          <Route path="/product/:id" element={<ProductPage setIsLoading={setIsLoading}/>}/>
+          <Route path="/cart" element={<CartPage />}/>
+          <Route path="/checkout" element={<CheckoutPage />}/>
+          <Route path="/checkout-success" element={<CheckoutSuccessPage />} />
+          <Route path="/contact" element={<ContactPage />}/>
+          <Route path="*" element={<NotFoundPage />} /> </Routes>
+      </Layout>
+    </Router>
   );
 }
 
