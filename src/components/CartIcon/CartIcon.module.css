@@ -1,0 +1,33 @@
+/* Side Cart */
+.sideCart {
+    position: fixed;
+    right: 0;
+    top: 0;
+    width: 300px;
+    height: 100%;
+    background-color: #fff;
+    color: black;
+    box-shadow: -2px 0 5px rgba(0, 0, 0, 0.5);
+    z-index: 1003;
+    padding: 20px;
+    transform: translateX(100%);
+    transition: transform 0.5s ease;
+  }
+  
+  .sideCart.open {
+    transform: translateX(0);
+  }
+  
+  .closeCart {
+    background: none;
+    border: none;
+    color: black;
+    font-size: 1.5rem;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+  }
+  
+  .closeCart:hover {
+    transform: rotate(90deg);
+  }
+  
