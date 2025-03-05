@@ -9,7 +9,7 @@
   height: 25px;
   text-align: center;
   position: fixed;
-  z-index: 1000;
+  z-index: 1100;
   margin: 0;
   animation: slideDown 0.6s ease;
  
@@ -41,6 +41,7 @@
   box-sizing: border-box;
   animation: fadeIn 1s ease;
   margin: 0;
+  z-index: 1000;
 }
 
 @keyframes fadeIn {
@@ -172,11 +173,13 @@
   text-align: center;
   opacity: 0;
   transform: translateY(-30px);
+  z-index: 9999;
 }
 
 .navMenu.open {
   max-height: 300px;
   opacity: 1;
+  z-index: 9999;
   transform: translateY(0);
 }
 
