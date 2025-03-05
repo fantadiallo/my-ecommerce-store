@@ -5,11 +5,14 @@
   color: white;
   font-size: 12px;
   top: 0;
-  z-index: 1002;
   padding: 5px 0;
+  height: 25px;
   text-align: center;
   position: fixed;
+  z-index: 1000;
+  margin: 0;
   animation: slideDown 0.6s ease;
+ 
 }
 
 @keyframes slideDown {
@@ -25,7 +28,7 @@
 
 /* Main Header */
 .header {
-  top: 40px;
+  top: 30px;
   position: fixed;
   width: 100%;
   height: 60px;
@@ -35,9 +38,9 @@
   align-items: center;
   padding: 0 20px;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
-  z-index: 1001;
   box-sizing: border-box;
   animation: fadeIn 1s ease;
+  margin: 0;
 }
 
 @keyframes fadeIn {
@@ -172,7 +175,7 @@
 }
 
 .navMenu.open {
-  max-height: 200px;
+  max-height: 300px;
   opacity: 1;
   transform: translateY(0);
 }
@@ -226,38 +229,7 @@
   }
 }
 
-/* Side Cart */
-.sideCart {
-  position: fixed;
-  right: 0;
-  top: 0;
-  width: 300px;
-  height: 100%;
-  background-color: #fff;
-  color: black;
-  box-shadow: -2px 0 5px rgba(0, 0, 0, 0.5);
-  z-index: 1003;
-  padding: 20px;
-  transform: translateX(100%);
-  transition: transform 0.5s ease;
-}
 
-.sideCart.open {
-  transform: translateX(0);
-}
-
-.closeCart {
-  background: none;
-  border: none;
-  color: black;
-  font-size: 1.5rem;
-  cursor: pointer;
-  transition: transform 0.3s ease;
-}
-
-.closeCart:hover {
-  transform: rotate(90deg);
-}
 
 /* Responsive Styles */
 @media (max-width: 768px) {

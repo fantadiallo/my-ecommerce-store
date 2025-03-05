@@ -27,7 +27,7 @@ function Header() {
 
         {/* Center Logo */}
         <div className={styles.centerContent}>
-          <Link to="/" className={styles.logo}>Logo</Link>
+          <Link to="/" className={styles.logo}>WaloWeb.3</Link>
 
           {/* Navigation Links (desktop only) */}
           <nav className={styles.navLinks}>
