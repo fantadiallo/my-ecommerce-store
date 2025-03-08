@@ -9,6 +9,7 @@ const Layout = ({ children }) => {
       <main className={styles.main}>
         {children}
       </main>
+      <footer />
     </div>
   );
 };

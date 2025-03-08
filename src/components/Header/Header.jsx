@@ -1,67 +1,69 @@
-import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
-import CartIcon from '../CartIcon/CartIcon';
-import FavoritesIcon from '../FavoritesIcon/FavoritesIcon';
-import styles from './Header.module.css';
+import { useContext, useState } from "react";
+import { Link } from "react-router-dom";
+import { CartContext } from "../../context/CartContext";
+import styles from "./Header.module.css";
 
 function Header() {
+  const { cartItems } = useContext(CartContext);
   const [menuOpen, setMenuOpen] = useState(false);
-  const [isCartOpen, setIsCartOpen] = useState(false);
+  const [cartOpen, setCartOpen] = useState(false);
 
-  const toggleMenu = () => setMenuOpen((prev) => !prev);
-  const toggleCart = () => setIsCartOpen((prev) => !prev);
+  const totalPrice = cartItems.reduce((sum, item) => sum + item.discountedPrice, 0);
 
   return (
-    <div>
-      {/* Top Header */}
-      <div className={styles.topHeader}>
-        <p>Welcome to our Online Store</p>
-      </div>
+    <header className={styles.header}>
+      <nav className={styles.navbar}>
+        <Link to="/" className={styles.logo}>E-Shop</Link>
 
-      {/* Main Header */}
-      <header className={styles.header}>
-        {/* Hamburger Menu (mobile only) */}
-        <button className={styles.hamburger} onClick={toggleMenu}>
-          {menuOpen ? '✖' : '☰'}
+        {/* Hamburger Menu Button */}
+        <button className={styles.hamburger} onClick={() => setMenuOpen(!menuOpen)}>
+          ☰
         </button>
 
-        {/* Center Logo */}
-        <div className={styles.centerContent}>
-          <Link to="/" className={styles.logo}>WaloWeb.3</Link>
-
-          {/* Navigation Links (desktop only) */}
-          <nav className={styles.navLinks}>
-            <Link to="/home">Home</Link>
-            <Link to="/store">Store</Link>
-            <Link to="/contact">Contact</Link>
-          </nav>
-        </div>
-
-        {/* Right Side Icons */}
-        <div className={styles.rightIcons}>
-          <FavoritesIcon />
-          <CartIcon onClick={toggleCart} itemCount={3} />
-        </div>
-      </header>
-
-      {/* Collapsible Navigation Menu (mobile only) */}
-      <nav className={`${styles.navMenu} ${menuOpen ? styles.open : ''}`}>
-        <ul>
-          <li><Link to="/home" onClick={() => setMenuOpen(false)}>Home</Link></li>
-          <li><Link to="/store" onClick={() => setMenuOpen(false)}>Store</Link></li>
+        {/* Nav Links */}
+        <ul className={`${styles.navLinks} ${menuOpen ? styles.show : ""}`}>
+          <li><Link to="/" onClick={() => setMenuOpen(false)}>Home</Link></li>
+          <li><Link to="/shop" onClick={() => setMenuOpen(false)}>Shop</Link></li>
           <li><Link to="/contact" onClick={() => setMenuOpen(false)}>Contact</Link></li>
+          <li>
+            {/* Clicking Cart Icon opens the sidebar */}
+            <button className={styles.cartIcon} onClick={() => setCartOpen(true)}>
+              🛒 <span className={styles.cartCount}>{cartItems.length}</span>
+            </button>
+          </li>
         </ul>
       </nav>
 
-      {/* Side Cart Popup */}
-      {isCartOpen && (
-        <div className={styles.sideCart}>
-          <button onClick={toggleCart} className={styles.closeCart}>✖</button>
-          <h3>Your Cart</h3>
-          <p>Cart content will go here...</p>
-        </div>
-      )}
-    </div>
+      {/* Side Cart Menu */}
+      <div className={`${styles.cartSidebar} ${cartOpen ? styles.showCart : ""}`}>
+        <button className={styles.closeCart} onClick={() => setCartOpen(false)}>✖</button>
+        <h2>Shopping Cart</h2>
+
+        {cartItems.length > 0 ? (
+          <>
+            <ul>
+              {cartItems.map((item) => (
+                <li key={item.id}>
+                  {item.title} - ${item.discountedPrice}
+                </li>
+              ))}
+            </ul>
+            <p className={styles.totalPrice}>Total: ${totalPrice.toFixed(2)}</p>
+            <Link to="/cart" onClick={() => setCartOpen(false)}>
+              <button className={styles.viewCartButton}>View Cart</button>
+            </Link>
+            <Link to="/checkout" onClick={() => setCartOpen(false)}>
+              <button className={styles.checkoutButton}>Checkout</button>
+            </Link>
+          </>
+        ) : (
+          <p className={styles.emptyCart}>Cart is empty</p>
+        )}
+      </div>
+
+      {/* Background Overlay when cart is open */}
+      {cartOpen && <div className={styles.cartOverlay} onClick={() => setCartOpen(false)}></div>}
+    </header>
   );
 }
 

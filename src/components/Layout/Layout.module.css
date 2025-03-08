@@ -1,8 +1,13 @@
-main{
-  margin-top: 85px; /* ✅ Top Header (25px) + Main Header (60px) */
+/* Layout Styling */
+.layout {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.main {
+  flex-grow: 1;
   padding: 20px;
   max-width: 1200px;
-  margin-left: auto;
-  margin-right: auto;
-  width: 90%;
+  margin: auto;
 }
