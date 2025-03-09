@@ -1,4 +1,4 @@
-/* 🔧 Layout Container */
+
 .layout {
   display: flex;
   flex-direction: column;
@@ -6,11 +6,28 @@
   width: 100%;
 }
 
-/* 🔧 Main Content - Adjusted Padding & Centering */
+
 .main {
   padding: 20px;
-  max-width: 1200px; /* ✅ Keeps content within 1200px */
+  max-width: 1200px;
   width: 100%;
-  margin: 0 auto; /* ✅ Centers content */
-  padding-top: 100px; /* ✅ Prevents header overlap */
+  margin: 0 auto;
+  padding-top: 100px;
+  flex: 1;
+}
+
+
+.container {
+  max-width: 1200px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 40px;
+}
+
+.footer {
+  background: #008080;
+  color: white;
+  padding: 20px;
+  text-align: center;
+  margin-top: auto;
 }

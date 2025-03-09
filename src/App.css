@@ -1,49 +1,49 @@
+/* General Reset */
 html, body {
-    height: 100%;
-    margin: 0;
-  }
-  
-  #root {
-    display: flex;
-    flex-direction: column;
-    min-height: 100vh;
-  }
-  
-  main {
-    flex: 1; /* Pushes footer to the bottom */
-  }
-  a{
-    text-decoration: none;
-    color: white;
-  }
-  .link {
-    text-decoration: none;
-    color: inherit;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
 }
 
-
-.container {
-    max-width: 1200px;
-    width: 100%;
-    margin: 0 auto;
-    padding: 20px;
+/* Root App Wrapper */
+#root {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
 }
 
+/* Main Content - Pushes Footer Down */
+main {
+  flex: 1;
+}
 
+/* Links Styling */
+a {
+  text-decoration: none;
+  color: white;
+}
+
+.link {
+  text-decoration: none;
+  color: inherit;
+}
+
+/* Buttons */
 button {
-    cursor: pointer;
-    border: none;
-    padding: 10px 15px;
-    border-radius: 5px;
-    font-size: 1rem;
-    background-color: #008080;
-    color: white;
-    transition: background 0.3s, transform 0.2s;
+  cursor: pointer;
+  border: none;
+  padding: 10px 15px;
+  border-radius: 5px;
+  font-size: 1rem;
+  background-color: #008080;
+  color: white;
+  transition: background 0.3s, transform 0.2s;
 }
 
 button:hover {
-    background: #2e2e2e;
-    opacity: 0.9;
-    transform: scale(1.02);
+  background: #2e2e2e;
+  opacity: 0.9;
+  transform: scale(1.02);
 }
-

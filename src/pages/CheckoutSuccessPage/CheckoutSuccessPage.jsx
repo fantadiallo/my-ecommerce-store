@@ -8,15 +8,24 @@ function CheckoutSuccessPage() {
   const { clearCart } = useContext(CartContext);
 
   useEffect(() => {
-    clearCart(); // Clear the cart when user reaches this page
+    clearCart();
   }, [clearCart]);
 
   return (
-    <motion.div className={styles.successContainer} initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.5 }}>
+    <motion.div 
+      className={styles.successContainer} 
+      initial={{ opacity: 0 }} 
+      animate={{ opacity: 1 }} 
+      transition={{ duration: 0.5 }}
+    >
       <h1 className={styles.successMessage}>🎉 Order Successful!</h1>
       <p className={styles.successText}>Thank you for shopping with us. Your order has been placed successfully.</p>
       <Link to="/" className={styles.backToStore}>
-        <motion.button className={styles.backButton} whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
+        <motion.button 
+          className={styles.backButton} 
+          whileHover={{ scale: 1.05 }} 
+          whileTap={{ scale: 0.95 }}
+        >
           Continue Shopping
         </motion.button>
       </Link>

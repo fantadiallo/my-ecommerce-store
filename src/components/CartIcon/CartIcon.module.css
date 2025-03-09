@@ -1,12 +1,12 @@
-/* 🔧 Fix Layout of the Cart Icon */
+
 .cartIconContainer {
-  position: relative; /* ✅ Ensures dropdown is positioned correctly */
+  position: relative; 
   display: flex;
   align-items: center;
   justify-content: center;
 }
 
-/* 🔧 Cart Button */
+
 .cartButton {
   background: none;
   border: none;
@@ -19,12 +19,11 @@
   padding: 5px;
 }
 
-/* 🔧 Fix Cart Count (Notification Badge) */
 .cartCount {
   position: absolute;
   top: -5px;
-  right: 0; /* ✅ Aligns properly inside the button */
-  transform: translateX(50%); /* ✅ Prevents overflow */
+  right: 0; 
+  transform: translateX(50%); 
   background: #008080;
   color: white;
   font-size: 7px;
@@ -41,22 +40,22 @@
 }
 
 
-/* 🔧 Fix Dropdown Position */
+
 .cartDropdown {
   position: absolute;
-  top: 40px; /* ✅ Adjust based on header height */
-  right: 0; /* ✅ Prevents pushing layout */
-  width: 250px; /* ✅ Prevents excessive width */
+  top: 40px; 
+  right: 0; 
+  width: 250px; 
   background: white;
   border: 1px solid #ddd;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   padding: 10px;
   z-index: 1000;
   border-radius: 5px;
-  overflow: hidden; /* ✅ Prevents layout shifts */
+  overflow: hidden; 
 }
 
-/* 🔧 Ensure the Cart Items Don't Push Layout */
+
 .cartItem {
   display: flex;
   align-items: center;
@@ -66,7 +65,7 @@
   overflow: hidden;
 }
 
-/* 🔧 Ensure Cart Images are Sized Properly */
+
 .cartItemImage {
   width: 40px;
   height: 40px;
@@ -74,7 +73,7 @@
   border-radius: 5px;
 }
 
-/* 🔧 Prevent Scroll Issue from View Cart Button */
+
 .viewCartLink {
   text-decoration: none;
   display: flex;

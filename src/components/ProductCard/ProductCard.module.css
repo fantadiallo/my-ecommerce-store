@@ -1,6 +1,6 @@
-/* Product Card */
+
 .card {
-    background: #008080; /* Keep this color */
+    background: #008080; 
     border-radius: 12px;
     box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
     transition: transform 0.3s ease-in-out;
@@ -11,7 +11,7 @@
     padding: 15px;
     max-width: 300px;
     width: 100%;
-    min-height: 400px; /* Allows content to expand */
+    min-height: 400px; 
     margin: 20px; 
 }
 
@@ -19,7 +19,7 @@
     transform: scale(1.03);
 }
 
-/* Product Image */
+
 .productImage {
     width: 100%;
     height: 200px;
@@ -36,49 +36,36 @@
     height: 100%;
 }
 
-/* ✅ Fixed Title for Multi-line Wrapping */
+
 .productTitle {
     font-size: 1.1rem;
     font-weight: bold;
     margin-bottom: 5px;
     overflow: hidden;
     display: -webkit-box;
-    -webkit-line-clamp: 2; /* Allows two lines */
     -webkit-box-orient: vertical;
     color: white;
 }
 
-/* Price Display */
 .productPrice {
     font-size: 1.1rem;
     margin-bottom: 5px;
     color: white;
 }
 
-/* Old Price (Strikethrough) */
-.oldPrice {
-    text-decoration: line-through;
-    color: red;
-    margin-right: 5px;
-}
 
-/* Discounted Price */
-.newPrice {
-    font-weight: bold;
-    color: green;
-}
 
-/* Product Rating */
+
 .productRating {
     font-size: 1rem;
-    color: #ffcc00;
+    color: #008080;
     margin-bottom: 10px;
 }
 
-/* ✅ Unified `.viewButton` */
+
 .viewButton {
-    background: white;
-    color: #008080;
+    background: #008080 ;
+    color: white;
     padding: 10px 12px;
     text-decoration: none;
     border-radius: 5px;
@@ -91,39 +78,12 @@
 }
 
 .viewButton:hover {
-    background: #0056b3;
+    background: #2e2e2e;
     color: white;
 }
 
-/* ✅ Improved Quantity Selector */
-.quantityContainer {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    margin-top: 10px;
-}
-  
-.quantityButton {
-    background-color: #333;
-    color: white;
-    border: none;
-    padding: 5px 10px;
-    cursor: pointer;
-    font-size: 16px;
-    border-radius: 5px;
-}
-  
-.quantityButton:hover {
-    background-color: #555;
-}
 
-/* ✅ Increased Font Size for Readability */
-.quantity {
-    font-size: 14px;
-    font-weight: bold;
-}
 
-/* Responsive Grid */
 @media (max-width: 768px) {
     .card {
         height: auto;

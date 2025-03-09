@@ -1,16 +1,22 @@
-import { useContext } from 'react';
-import { Link } from 'react-router-dom';
-import { CartContext } from '../../context/CartContext';
-import styles from './CartPage.module.css';
-import { motion } from 'framer-motion';
+import { useContext } from "react";
+import { Link } from "react-router-dom";
+import { CartContext } from "../../context/CartContext";
+import styles from "./CartPage.module.css";
+import { motion } from "framer-motion";
 
 function CartPage() {
-  const { cartItems } = useContext(CartContext);
+  const { cartItems, clearCart } = useContext(CartContext);
   const totalPrice = cartItems.reduce((sum, item) => sum + item.discountedPrice, 0);
 
   return (
-    <motion.div className={styles.cartContainer} initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.5 }}>
+    <motion.div 
+      className={styles.cartContainer} 
+      initial={{ opacity: 0 }} 
+      animate={{ opacity: 1 }} 
+      transition={{ duration: 0.5 }}
+    >
       <h1 className={styles.cartTitle}>Shopping Cart</h1>
+      
       {cartItems.length === 0 ? (
         <p className={styles.emptyCart}>Your cart is empty.</p>
       ) : (
@@ -24,12 +30,29 @@ function CartPage() {
               </div>
             </div>
           ))}
+
           <h2 className={styles.totalPrice}>Total: ${totalPrice.toFixed(2)}</h2>
-          <Link to="/checkout">
-            <motion.button className={styles.checkoutButton} whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
-              Proceed to Checkout
+
+          <div className={styles.cartButtons}>
+            <motion.button 
+              className={styles.clearCartButton} 
+              onClick={clearCart}
+              whileHover={{ scale: 1.05 }} 
+              whileTap={{ scale: 0.95 }}
+            >
+              Clear Cart
             </motion.button>
-          </Link>
+
+            <Link to="/checkout">
+              <motion.button 
+                className={styles.checkoutButton} 
+                whileHover={{ scale: 1.05 }} 
+                whileTap={{ scale: 0.95 }}
+              >
+                Proceed to Checkout
+              </motion.button>
+            </Link>
+          </div>
         </div>
       )}
     </motion.div>

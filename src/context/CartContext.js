@@ -5,7 +5,6 @@ export const CartContext = createContext();
 export function CartProvider({ children }) {
   const [cartItems, setCartItems] = useState([]);
 
-  // ✅ Function to add items to the cart and increase quantity if exists
   const addToCart = (product) => {
     setCartItems((prevCart) => {
       const existingItem = prevCart.find((item) => item.id === product.id);
