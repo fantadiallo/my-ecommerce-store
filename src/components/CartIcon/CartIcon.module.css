@@ -1,88 +1,98 @@
-/* Cart Icon Button */
-.cartIcon {
-  position: relative;
-  font-size: 24px;
-  background: none;
-  border: none;
-  cursor: pointer;
+/* 🔧 Fix Layout of the Cart Icon */
+.cartIconContainer {
+  position: relative; /* ✅ Ensures dropdown is positioned correctly */
   display: flex;
   align-items: center;
   justify-content: center;
-  transition: transform 0.2s ease-in-out;
 }
 
-.cartIcon:hover {
-  transform: scale(1.1);
+/* 🔧 Cart Button */
+.cartButton {
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  cursor: pointer;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 5px;
 }
 
-/* Cart Count Badge */
+/* 🔧 Fix Cart Count (Notification Badge) */
 .cartCount {
   position: absolute;
   top: -5px;
-  right: -10px;
-  background: red;
+  right: 0; /* ✅ Aligns properly inside the button */
+  transform: translateX(50%); /* ✅ Prevents overflow */
+  background: #008080;
   color: white;
-  font-size: 12px;
+  font-size: 7px;
   font-weight: bold;
-  padding: 4px 7px;
+  width: 18px;
+  height: 18px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   border-radius: 50%;
-  min-width: 20px;
-  text-align: center;
-}
-
-/* Cart Dropdown */
-.cartDropdown {
-  position: absolute;
-  top: 40px;
-  right: 0;
-  background: white;
-  border-radius: 8px;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
-  width: 250px;
-  padding: 10px;
+  min-width: 18px;
+  overflow: hidden;
   z-index: 10;
 }
 
+
+/* 🔧 Fix Dropdown Position */
+.cartDropdown {
+  position: absolute;
+  top: 40px; /* ✅ Adjust based on header height */
+  right: 0; /* ✅ Prevents pushing layout */
+  width: 250px; /* ✅ Prevents excessive width */
+  background: white;
+  border: 1px solid #ddd;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  padding: 10px;
+  z-index: 1000;
+  border-radius: 5px;
+  overflow: hidden; /* ✅ Prevents layout shifts */
+}
+
+/* 🔧 Ensure the Cart Items Don't Push Layout */
 .cartItem {
   display: flex;
   align-items: center;
+  gap: 10px;
   margin-bottom: 10px;
-  padding: 10px;
-  border-bottom: 1px solid #ddd;
+  max-width: 100%;
+  overflow: hidden;
 }
 
+/* 🔧 Ensure Cart Images are Sized Properly */
 .cartItemImage {
   width: 40px;
   height: 40px;
   object-fit: cover;
   border-radius: 5px;
-  margin-right: 10px;
 }
 
-.itemDetails p {
-  margin: 0;
-  font-size: 14px;
+/* 🔧 Prevent Scroll Issue from View Cart Button */
+.viewCartLink {
+  text-decoration: none;
+  display: flex;
+  justify-content: center;
 }
 
 .viewCartButton {
-  width: 100%;
   background: #007bff;
   color: white;
-  border: none;
   padding: 8px 12px;
-  font-size: 14px;
+  border: none;
   border-radius: 5px;
   cursor: pointer;
-  transition: background 0.3s;
+  width: 100%;
+  font-size: 14px;
+  transition: background 0.3s ease;
 }
 
 .viewCartButton:hover {
   background: #0056b3;
-}
-
-/* Responsive Fix */
-@media (max-width: 768px) {
-  .cartDropdown {
-    width: 200px;
-  }
 }

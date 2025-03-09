@@ -1,161 +1,59 @@
-/* Header */
 .header {
-  background: #333;
-  padding: 15px 20px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  color: white;
-  position: fixed;
   width: 100%;
-  top: 0;
-  z-index: 1000;
+  background: #008080;
+  padding: 1rem 2rem;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
 
-/* Navbar */
+
 .navbar {
   display: flex;
-  align-items: center;
-  width: 100%;
   justify-content: space-between;
+  align-items: center;
+  max-width: 1000px;
+  margin: 0 auto; 
+  width: 100%;
 }
+
 
 .logo {
   font-size: 1.5rem;
   font-weight: bold;
-  text-decoration: none;
-  color: white;
+  color: white; 
+  text-decoration: none; 
 }
 
-/* Navigation Links */
-.navLinks {
-  list-style: none;
-  display: flex;
-  gap: 20px;
-}
-
-.navLinks li {
-  display: inline;
-}
-
-.navLinks a {
-  color: white;
-  text-decoration: none;
-  font-size: 1rem;
-}
-
-.navLinks a:hover {
-  text-decoration: underline;
-}
-
-/* Cart Icon */
-.cartIcon {
-  position: relative;
-  background: none;
-  border: none;
-  color: white;
-  font-size: 1.5rem;
-  cursor: pointer;
-}
-
-.cartCount {
-  background: red;
-  color: white;
-  font-size: 0.8rem;
-  padding: 2px 6px;
-  border-radius: 50%;
-  position: absolute;
-  top: -5px;
-  right: -10px;
-}
-
-/* Side Cart Menu */
-.cartSidebar {
-  position: fixed;
-  top: 0;
-  right: -300px;
-  width: 280px;
-  height: 100%;
-  background: white;
-  color: black;
-  box-shadow: -5px 0 10px rgba(0, 0, 0, 0.2);
-  padding: 20px;
-  display: flex;
-  flex-direction: column;
-  transition: right 0.3s ease-in-out;
-  z-index: 100;
-}
-
-.showCart {
-  right: 0;
-}
-
-.closeCart {
-  background: none;
-  border: none;
-  font-size: 1.5rem;
-  color: black;
-  align-self: flex-end;
-  cursor: pointer;
-}
-
-.totalPrice {
-  font-size: 1.2rem;
-  font-weight: bold;
-  margin-top: 10px;
-}
-
-.viewCartButton,
-.checkoutButton {
-  background: #28a745;
-  color: white;
-  border: none;
-  padding: 10px;
-  cursor: pointer;
-  border-radius: 5px;
-  margin-top: 10px;
-}
-
-.checkoutButton {
-  background: #007bff;
-}
-
-.viewCartButton:hover {
-  background: #218838;
-}
-
-.checkoutButton:hover {
-  background: #0056b3;
-}
-
-.emptyCart {
-  text-align: center;
-  font-size: 0.9rem;
-  color: gray;
-}
-
-/* Background Overlay */
-.cartOverlay {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(0, 0, 0, 0.5);
-  z-index: 99;
-}
-
-/* Mobile Responsiveness */
+/* ✅ Mobile Menu Button */
 .hamburger {
   display: none;
-  font-size: 1.8rem;
+  font-size: 2rem;
   background: none;
   border: none;
-  color: white;
   cursor: pointer;
+  color: white; /* ✅ Make sure it’s visible */
 }
 
-@media (max-width: 768px) {
+/* ✅ Navigation Links */
+.navLinks {
+  display: flex;
+  list-style: none;
+  gap: 1.5rem;
+}
+
+/* ✅ Links - White & No Underline */
+.navLinks li a {
+  text-decoration: none; /* ✅ No underline */
+  color: white; /* ✅ Change to white */
+  font-size: 1rem;
+  transition: color 0.3s ease;
+}
+
+.navLinks li a:hover {
+  color: white;
+}
+
+/* ✅ Responsive Styling */
+@media (max-width: 600px) {
   .hamburger {
     display: block;
   }
@@ -165,13 +63,19 @@
     flex-direction: column;
     position: absolute;
     top: 60px;
-    right: 20px;
-    background: #333;
-    padding: 15px;
-    border-radius: 8px;
+    right: 0;
+    background: #2e2e2e; /* ✅ Match header color */
+    width: 100%;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    padding: 1rem 0;
   }
 
   .navLinks.show {
     display: flex;
+  }
+
+  .navLinks li {
+    text-align: center;
+    padding: 1rem 0;
   }
 }

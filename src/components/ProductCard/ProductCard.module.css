@@ -1,9 +1,8 @@
-/* Product Card Styling */
+/* Product Card */
 .card {
-    background: white;
+    background: #008080; /* Keep this color */
     border-radius: 12px;
     box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
-    overflow: hidden;
     transition: transform 0.3s ease-in-out;
     display: flex;
     flex-direction: column;
@@ -12,100 +11,121 @@
     padding: 15px;
     max-width: 300px;
     width: 100%;
-    height: 400px;
-  }
-  
-  .card:hover {
+    min-height: 400px; /* Allows content to expand */
+    margin: 20px; 
+}
+
+.card:hover {
     transform: scale(1.03);
-  }
-  
-  .productImage {
+}
+
+/* Product Image */
+.productImage {
     width: 100%;
     height: 200px;
     object-fit: cover;
     border-bottom: 2px solid #ddd;
-  }
-  
-  .cardContent {
+}
+
+/* Product Card Content */
+.cardContent {
     padding: 10px;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     height: 100%;
-  }
-  
-  .productTitle {
+}
+
+/* ✅ Fixed Title for Multi-line Wrapping */
+.productTitle {
     font-size: 1.1rem;
     font-weight: bold;
     margin-bottom: 5px;
-    white-space: nowrap;
     overflow: hidden;
-    text-overflow: ellipsis;
-  }
-  
-  .productPrice {
+    display: -webkit-box;
+    -webkit-line-clamp: 2; /* Allows two lines */
+    -webkit-box-orient: vertical;
+    color: white;
+}
+
+/* Price Display */
+.productPrice {
     font-size: 1.1rem;
     margin-bottom: 5px;
-  }
-  
-  .oldPrice {
+    color: white;
+}
+
+/* Old Price (Strikethrough) */
+.oldPrice {
     text-decoration: line-through;
     color: red;
     margin-right: 5px;
-  }
-  
-  .newPrice {
+}
+
+/* Discounted Price */
+.newPrice {
     font-weight: bold;
     color: green;
-  }
-  
-  .productRating {
+}
+
+/* Product Rating */
+.productRating {
     font-size: 1rem;
     color: #ffcc00;
     margin-bottom: 10px;
-  }
-  
-  .viewButton {
-    background: #007bff;
-    color: white;
-    padding: 8px 12px;
+}
+
+/* ✅ Unified `.viewButton` */
+.viewButton {
+    background: white;
+    color: #008080;
+    padding: 10px 12px;
     text-decoration: none;
     border-radius: 5px;
-    transition: background 0.3s;
-    font-size: 0.9rem;
-    font-weight: bold;
-  }
-  
-  .viewButton:hover {
-    background: #0056b3;
-  }
-  
-  /* Responsive Grid Layout for Homepage */
-  .productList {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 20px;
-    justify-content: center;
-    padding: 20px;
-  }
-  
-  /* Search Bar Styling */
-  .searchContainer {
-    text-align: center;
-    margin-bottom: 20px;
-  }
-  
-  .searchBar {
-    width: 80%;
-    max-width: 400px;
-    padding: 10px;
-    border: 2px solid #ccc;
-    border-radius: 5px;
+    transition: background 0.3s, color 0.3s;
     font-size: 1rem;
-  }
+    font-weight: bold;
+    display: inline-block;
+    border: none;
+    cursor: pointer;
+}
+
+.viewButton:hover {
+    background: #0056b3;
+    color: white;
+}
+
+/* ✅ Improved Quantity Selector */
+.quantityContainer {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-top: 10px;
+}
   
-  @media (max-width: 768px) {
+.quantityButton {
+    background-color: #333;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    cursor: pointer;
+    font-size: 16px;
+    border-radius: 5px;
+}
+  
+.quantityButton:hover {
+    background-color: #555;
+}
+
+/* ✅ Increased Font Size for Readability */
+.quantity {
+    font-size: 14px;
+    font-weight: bold;
+}
+
+/* Responsive Grid */
+@media (max-width: 768px) {
     .card {
-      height: auto;
+        height: auto;
     }
-  }
+}

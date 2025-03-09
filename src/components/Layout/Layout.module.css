@@ -1,13 +1,16 @@
-/* Layout Styling */
+/* 🔧 Layout Container */
 .layout {
   display: flex;
   flex-direction: column;
   min-height: 100vh;
+  width: 100%;
 }
 
+/* 🔧 Main Content - Adjusted Padding & Centering */
 .main {
-  flex-grow: 1;
   padding: 20px;
-  max-width: 1200px;
-  margin: auto;
+  max-width: 1200px; /* ✅ Keeps content within 1200px */
+  width: 100%;
+  margin: 0 auto; /* ✅ Centers content */
+  padding-top: 100px; /* ✅ Prevents header overlap */
 }

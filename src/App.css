@@ -1,32 +1,49 @@
-/* General App Styling */
-* {
+html, body {
+    height: 100%;
     margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: 'Arial', sans-serif;
   }
   
-  body {
-    background: #f4f4f4;
-    color: #333;
+  #root {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
   }
   
-  .container {
+  main {
+    flex: 1; /* Pushes footer to the bottom */
+  }
+  a{
+    text-decoration: none;
+    color: white;
+  }
+  .link {
+    text-decoration: none;
+    color: inherit;
+}
+
+
+.container {
     max-width: 1200px;
-    margin: auto;
+    width: 100%;
+    margin: 0 auto;
     padding: 20px;
-  }
-  
-  button {
+}
+
+
+button {
     cursor: pointer;
     border: none;
     padding: 10px 15px;
     border-radius: 5px;
     font-size: 1rem;
-    transition: background 0.3s;
-  }
-  
-  button:hover {
+    background-color: #008080;
+    color: white;
+    transition: background 0.3s, transform 0.2s;
+}
+
+button:hover {
+    background: #2e2e2e;
     opacity: 0.9;
-  }
-  
+    transform: scale(1.02);
+}
+

@@ -10,17 +10,30 @@ function CartIcon() {
 
   return (
     <div className={styles.cartIconContainer}>
+      {/* Cart Button */}
       <motion.button 
         className={styles.cartButton} 
         onClick={() => setIsOpen(!isOpen)}
         whileHover={{ scale: 1.1 }}
         whileTap={{ scale: 0.9 }}
       >
-        🛒 <span className={styles.cartCount}>{cartItems.length}</span>
+        🛒 
+        <span className={styles.cartCount}>{cartItems.reduce((total, item) => total + item.quantity, 0)}</span>
       </motion.button>
 
+      {/* Cart Dropdown */}
       {isOpen && (
-        <motion.div className={styles.cartDropdown} initial={{ opacity: 0, y: -10 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.3 }}>
+        <motion.div 
+          className={styles.cartDropdown} 
+          initial={{ opacity: 0, y: -10 }} 
+          animate={{ opacity: 1, y: 0 }} 
+          transition={{ duration: 0.3 }}
+        >
+          {/* Close Button */}
+          <button className={styles.closeCartButton} onClick={() => setIsOpen(false)}>
+            ✖
+          </button>
+
           {cartItems.length === 0 ? (
             <p className={styles.emptyCart}>Your cart is empty.</p>
           ) : (
@@ -31,6 +44,7 @@ function CartIcon() {
                   <div className={styles.itemDetails}>
                     <p>{item.title}</p>
                     <p>${item.discountedPrice.toFixed(2)}</p>
+                    <p>Quantity: {item.quantity}</p> {/* ✅ Shows quantity instead of duplicate */}
                   </div>
                 </div>
               ))}
