@@ -8,7 +8,9 @@ function CheckoutSuccessPage() {
   const { clearCart } = useContext(CartContext);
 
   useEffect(() => {
-    clearCart();
+    if (clearCart) {
+      clearCart(); // ✅ This will clear the cart after checkout
+    }
   }, [clearCart]);
 
   return (
